@@ -12,8 +12,12 @@ public class DisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
+        TextView jokeTextView = findViewById(R.id.joke_tv);
         String joke = getIntent().getStringExtra(JOKE_EXTRA);
-        ((TextView) findViewById(R.id.joke_tv)).setText(joke);
+
+        if (joke !=null){
+            jokeTextView.setText(joke);
+        }else jokeTextView.setText(R.string.no_jokes_found);
     }
 
 }
