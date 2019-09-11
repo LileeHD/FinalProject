@@ -44,33 +44,32 @@ android {
         exclude 'META-INF/notice.txt'
         exclude 'META-INF/ASL2.0'
     }
-    sourceSets{
-        main { java.srcDirs = ['src/main/java'] }
+    sourceSets {
+        main { java.srcDirs = ['src/main/java', 'src/paid/java/'] }
         test { java.srcDirs = ['src/test/java'] }
         androidTest { java.srcDirs = ['src/androidTest/java'] }
+        free { java.srcDirs = ['src/free/java'] }
+//        paid { java.srcDirs = ['src/paid/java'] }
     }
     flavorDimensions "version"
-    productFlavors(){
-        free{
+    productFlavors() {
+        free {
             dimension "version"
-            applicationIdSuffix ".free"
-            versionNameSuffix "-free"
+            applicationId "com.udacity.gradle.builditbigger.free"
         }
-        paid{
-            dimension "version"
-            applicationIdSuffix ".paid"
-            versionNameSuffix "-paid"
-        }
-    }
-    testOptions {
-        unitTests.returnDefaultValues = true
+//        paid {
+//            dimension "version"
+//            applicationId "com.udacity.gradle.builditbigger.paid"
+//        }
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     endpointsServer project(path: ':backend', configuration: 'endpoints')
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     freeImplementation 'com.google.android.gms:play-services-ads:18.2.0'
     implementation 'com.google.api-client:google-api-client:1.30.2'
     implementation 'com.google.http-client:google-http-client-android:1.31.0'

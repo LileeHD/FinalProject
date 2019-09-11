@@ -2,13 +2,13 @@ package com.udacity.gradle.builditbigger;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -18,7 +18,6 @@ import lilee.hd.jokedisplay.DisplayActivity;
 
 public class MainActivity extends AppCompatActivity implements AsyncResponseHandler {
 
-    private InterstitialAd mInterstitialAd;
 
     private static final String TAG = "HAMMER DOWN";
     MyAsyncTask myAsyncTask = new MyAsyncTask();
@@ -27,15 +26,14 @@ public class MainActivity extends AppCompatActivity implements AsyncResponseHand
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3597020112887836~4885523265");
-    }
 
+//        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+//            @Override
+//            public void onInitializationComplete(InitializationStatus initializationStatus) {
+//                Log.v(TAG, "PUB VISIBLE");
+//            }
+//        });
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -60,11 +58,6 @@ public class MainActivity extends AppCompatActivity implements AsyncResponseHand
     }
 
     public void tellJoke(View view) {
-//        JokesProvider jokesProvider = new JokesProvider();
-//        Toast.makeText(this, jokesProvider.getJoke(), Toast.LENGTH_LONG).show();
-//        Intent intent = new Intent(this, DisplayActivity.class);
-//        intent.putExtra(DisplayActivity.JOKE_EXTRA);
-//        startActivity(intent);
         myAsyncTask.responseHandler = this;
         myAsyncTask.execute();
     }

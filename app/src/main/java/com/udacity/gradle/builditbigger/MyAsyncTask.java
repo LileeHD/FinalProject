@@ -17,7 +17,7 @@ public class MyAsyncTask extends AsyncTask<Void, Void, String> {
 
     private static MyApi myApiService = null;
 
-    AsyncResponseHandler responseHandler;
+    public AsyncResponseHandler responseHandler;
 
     void setResponseHandler(AsyncResponseHandler responseHandler) {
         this.responseHandler = responseHandler;
