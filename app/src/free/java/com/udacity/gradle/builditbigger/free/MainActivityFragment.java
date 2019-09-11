@@ -14,6 +14,9 @@ import com.google.android.gms.ads.AdView;
 import com.udacity.gradle.builditbigger.R;
 
 public class MainActivityFragment extends Fragment {
+
+    public MainActivityFragment() {
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

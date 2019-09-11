@@ -19,14 +19,14 @@ import lilee.hd.jokedisplay.DisplayActivity;
 public class MainActivity extends AppCompatActivity implements AsyncResponseHandler {
 
 
-    private static final String TAG = "HAMMER DOWN";
+//    private static final String TAG = "HAMMER DOWN";
     MyAsyncTask myAsyncTask = new MyAsyncTask();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+//
 //        MobileAds.initialize(this, new OnInitializationCompleteListener() {
 //            @Override
 //            public void onInitializationComplete(InitializationStatus initializationStatus) {
