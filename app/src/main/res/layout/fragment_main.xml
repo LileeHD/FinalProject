@@ -17,7 +17,6 @@
         android:layout_below="@+id/instructions_text_view"
         android:layout_marginVertical="20dp"
         android:background="@android:color/background_light"
-        android:onClick="tellJoke"
         android:text="@string/button_text" />
 
     <ImageView

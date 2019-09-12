@@ -2,23 +2,37 @@ package com.udacity.gradle.builditbigger;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 import lilee.hd.jokedisplay.DisplayActivity;
 
 
 public class MainActivity extends AppCompatActivity implements AsyncResponseHandler {
-
-    MyAsyncTask myAsyncTask = new MyAsyncTask();
+    private static final String TAG = "I'm on fire !";
+    String mJoke;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button mButton = findViewById(R.id.joke_btn);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tellJoke();
+                Log.d(TAG, "Zenyatta is everywhere.");
+            }
+        });
     }
 
     @Override
@@ -43,13 +57,15 @@ public class MainActivity extends AppCompatActivity implements AsyncResponseHand
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view) {
+    public void tellJoke() {
+        MyAsyncTask myAsyncTask = new MyAsyncTask();
         myAsyncTask.responseHandler = this;
         myAsyncTask.execute();
     }
 
     @Override
     public void responseHandle(String output) {
+        mJoke = output;
         Intent intent = new Intent(this, DisplayActivity.class);
         intent.putExtra(DisplayActivity.JOKE_EXTRA, output);
         this.startActivity(intent);
