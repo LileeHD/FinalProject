@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger.free;
+package com.udacity.gradle.builditbigger.paid;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,9 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
 import com.udacity.gradle.builditbigger.AsyncResponseHandler;
 import com.udacity.gradle.builditbigger.MyAsyncTask;
 import com.udacity.gradle.builditbigger.R;
@@ -30,7 +27,7 @@ public class MainActivityFragment extends Fragment implements AsyncResponseHandl
 
     private static final String TAG = "Ultimate is ready";
 
-    private InterstitialAd mInterstitialAd;
+    private String mJoke;
 
     public MainActivityFragment() {
     }
@@ -39,32 +36,14 @@ public class MainActivityFragment extends Fragment implements AsyncResponseHandl
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
-        AdView mAdView = (AdView) root.findViewById(R.id.adView);
-        // Create an ad request. Check logcat output for the hashed device ID to
-        // get test ads on a physical device. e.g.
-        // "Use AdRequest.Builder.addTestDevice("ABCDEF012345") to get test ads on this device."
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .build();
-        mAdView.loadAd(adRequest);
-
-        mInterstitialAd = new InterstitialAd(Objects.requireNonNull(getActivity()));
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         mProBar = root.findViewById(R.id.progress_bar);
         Button mButton = root.findViewById(R.id.joke_btn);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                    tellJoke();
-                    Log.d(TAG, "Current outlook: Ad is displayed");
-                } else {
-                    Toast.makeText(getContext(), getString(R.string.no_interstitial), Toast.LENGTH_LONG).show();
-                }
-                Log.d(TAG, "Orisa Online.");
+                tellJoke();
+                Log.d(TAG, "Sygma presents.");
             }
         });
         return root;

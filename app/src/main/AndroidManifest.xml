@@ -30,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".free.MainActivity" />
         <!--Include the AdActivity configChanges and theme. -->
     </application>
 

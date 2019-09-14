@@ -5,6 +5,5 @@
     <string name="action_settings">Settings</string>
     <string name="paid_msg">No ads here because you paid for it!</string>
     <string name="not_sure">This is vanilla and I don\'t know if it\'s a version or not, so I put that here</string>
-    <string name="no_ads_msg">Don\'t want ads here? Easy, just take a look at the paid version</string>
-
+    <string name="no_interstitial">No Ads loaded, no jokes.</string>
 </resources>

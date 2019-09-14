@@ -21,15 +21,26 @@
         android:textAllCaps="true"
         android:layout_marginTop="20dp"
         android:textSize="15sp"/>
-
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:progressBackgroundTint="@android:color/background_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/instructions_text_view"
+        android:indeterminateOnly="true"
+        android:visibility="gone"
+        />
     <Button
         android:id="@+id/joke_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="20dp"
         android:background="@android:color/background_light"
-        android:layout_below="@+id/instructions_text_view"
-        android:text="@string/button_text" />
+        android:layout_below="@+id/progress_bar"
+        android:text="@string/button_text"
+        android:visibility="visible"/>
 
     <ImageView
         android:layout_width="match_parent"
@@ -44,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/adView"
         android:layout_marginTop="20dp"
-        android:text="@string/no_ads_msg"
+        android:text="@string/free_msg"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textSize="15sp" />

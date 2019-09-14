@@ -49,7 +49,7 @@ android {
         test { java.srcDirs = ['src/test/java'] }
         androidTest { java.srcDirs = ['src/androidTest/java'] }
         free { java.srcDirs = ['src/free/java'] }
-        paid { java.srcDirs = ['src/paid/java'] }
+        paid { java.srcDirs = ['src/paid/java', 'src/paid/java/'] }
     }
     flavorDimensions "version"
     productFlavors() {
