@@ -1,5 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
+//reference https://riptutorial.com/gradle/example/19710/multiple-dependencies-with-the-dependson-method
 buildscript {
     repositories {
         jcenter()
@@ -20,3 +20,26 @@ allprojects {
         google()
     }
 }
+
+task launchAppEngine {
+    dependsOn ":backend:appengineStart"
+}
+task runFreeAndroidTest {
+    dependsOn ":app:connectedFreeDebugAndroidTest"
+}
+task runPaidAndroidTest {
+    dependsOn ":app:connectedPaidDebugAndroidTest"
+}
+task stopAppEngine {
+    dependsOn ":backend:appengineStop"
+}
+task doItAll {
+    dependsOn "launchAppEngine",
+            "runFreeAndroidTest" mustRunAfter "launchAppEngine",
+    "runPaidAndroidTest" mustRunAfter "runFreeAndroidTest"
+    finalizedBy "stopAppEngine"
+}
+
+
+
+
