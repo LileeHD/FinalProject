@@ -6,4 +6,5 @@
     <string name="paid_msg">No ads here because you paid for it!</string>
     <string name="not_sure">This is vanilla and I don\'t know if it\'s a version or not, so I put that here</string>
     <string name="no_interstitial">No Ads loaded, no jokes.</string>
+    <string name="ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
 </resources>
