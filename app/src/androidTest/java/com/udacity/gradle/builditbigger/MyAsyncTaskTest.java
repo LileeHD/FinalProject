@@ -17,6 +17,7 @@ import static junit.framework.TestCase.assertNotNull;
 @RunWith(AndroidJUnit4.class)
 public class MyAsyncTaskTest {
     private String result = null;
+    private String TAG = "OVERWATCH";
 
     @Test
     public void LoadTest() {
@@ -25,12 +26,17 @@ public class MyAsyncTaskTest {
         MyAsyncTask asyncTask = new MyAsyncTask();
         AsyncResponseHandler handler = new AsyncResponseHandler() {
             @Override
-            public void responseHandle(String output) {
+            public void onSuccess(String output) {
                 result = output;
                 countDownLatch.countDown();
 //                assertEquals("Baptiste", "Ana");
                 assertNotNull(output);
-                Log.d("OVERWATCH", output);
+                Log.d(TAG, output);
+            }
+
+            @Override
+            public void onFailed(Exception exception) {
+                Log.d(TAG, String.valueOf(exception));
             }
         };
         asyncTask.setResponseHandler(handler);

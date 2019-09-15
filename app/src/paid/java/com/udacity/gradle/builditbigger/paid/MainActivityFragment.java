@@ -57,13 +57,18 @@ public class MainActivityFragment extends Fragment implements AsyncResponseHandl
     }
 
     @Override
-    public void responseHandle(String output) {
+    public void onSuccess(String output) {
         if(output!= null){
             Intent intent = new Intent(getActivity(), DisplayActivity.class);
             intent.putExtra(DisplayActivity.JOKE_EXTRA, output);
             mProBar.setVisibility(View.GONE);
             this.startActivity(intent);
         }
+    }
+
+    @Override
+    public void onFailed(Exception exception) {
+        Toast.makeText(getContext(), "ERROR: "+exception, Toast.LENGTH_LONG).show();
     }
 
 }

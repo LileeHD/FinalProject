@@ -12,7 +12,9 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 import java.io.IOException;
 import java.util.Objects;
 
-// Ressources: https://stackoverflow.com/questions/12575068/how-to-get-the-result-of-onpostexecute-to-main-activity-because-asynctask-is-a/12575319#12575319https://stackoverflow.com/questions/12575068/how-to-get-the-result-of-onpostexecute-to-main-activity-because-asynctask-is-a/12575319#12575319
+// Ressources:
+//https://gist.github.com/cesarferreira/ef70baa8d64f9753b4da
+// https://stackoverflow.com/questions/12575068/how-to-get-the-result-of-onpostexecute-to-main-activity-because-asynctask-is-a/12575319#12575319https://stackoverflow.com/questions/12575068/how-to-get-the-result-of-onpostexecute-to-main-activity-because-asynctask-is-a/12575319#12575319
 
 public class MyAsyncTask extends AsyncTask<Void, Void, String> {
     private static final String TAG = "HAMMER DOWN";
@@ -21,6 +23,7 @@ public class MyAsyncTask extends AsyncTask<Void, Void, String> {
     private static MyApi myApiService = null;
 
     public AsyncResponseHandler responseHandler;
+    private Exception mException;
 
     void setResponseHandler(AsyncResponseHandler responseHandler) {
         this.responseHandler = responseHandler;
@@ -42,6 +45,7 @@ public class MyAsyncTask extends AsyncTask<Void, Void, String> {
         }
             return myApiService.printJoke().execute().getData();
         } catch (IOException e) {
+            mException = e;
             Log.e(LOG_TAG, Objects.requireNonNull(e.getMessage()));
         }
         return null;
@@ -49,6 +53,12 @@ public class MyAsyncTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        responseHandler.responseHandle(result);
+        if (responseHandler != null){
+            if (mException == null){
+                responseHandler.onSuccess(result);
+            } else {
+                responseHandler.onFailed(mException);
+            }
+        }
     }
 }

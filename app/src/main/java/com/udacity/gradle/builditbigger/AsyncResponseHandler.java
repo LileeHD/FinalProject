@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
 public interface AsyncResponseHandler {
-    void responseHandle(String output);
+    void onSuccess(String output);
+    void onFailed(Exception exception);
 }
