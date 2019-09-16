@@ -30,6 +30,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+        }
     }
     dataBinding.enabled = true;
     compileOptions {
@@ -46,11 +50,10 @@ android {
         exclude 'META-INF/ASL2.0'
     }
     sourceSets {
-        main { java.srcDirs = ['src/main/java', 'src/paid/java/'] }
         test { java.srcDirs = ['src/test/java'] }
         androidTest { java.srcDirs = ['src/androidTest/java'] }
         free { java.srcDirs = ['src/free/java'] }
-        paid { java.srcDirs = ['src/paid/java', 'src/paid/java/'] }
+        paid { java.srcDirs = ['src/paid/java'] }
     }
     flavorDimensions "version"
     productFlavors() {
@@ -85,6 +88,5 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
 
-    implementation project(':jokesprovider')
     implementation project(':jokedisplay')
 }

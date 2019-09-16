@@ -1,21 +1,29 @@
-Sep 14, 2019 10:50:26 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
+Sep 16, 2019 1:11:38 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
 INFO: Overwriting system property key 'java.util.logging.config.file', value 'C:\Users\Lilee\AppData\Local\Google\Cloud SDK\google-cloud-sdk\platform\google_appengine\google\appengine\tools\java\config\sdk\logging.properties' with value 'WEB-INF/logging.properties' from 'D:\AND\ProjectsPartTwo\Gradle\FinalProject\backend\build\exploded-backend\WEB-INF\appengine-web.xml'
-2019-09-14 22:50:27.093:INFO::main: Logging initialized @450ms to org.eclipse.jetty.util.log.StdErrLog
-2019-09-14 22:50:27.138:WARN:oejs.AbstractConnector:main: Ignoring deprecated socket close linger time
-Sep 14, 2019 8:50:27 PM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
-WARNING: Your working directory, (D:\AND\ProjectsPartTwo\Gradle\FinalProject) is not equal to your 
+2019-09-16 13:11:38.208:INFO::main: Logging initialized @384ms to org.eclipse.jetty.util.log.StdErrLog
+2019-09-16 13:11:38.243:WARN:oejs.AbstractConnector:main: Ignoring deprecated socket close linger time
+Sep 16, 2019 11:11:38 AM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
+WARNING: Your working directory, (D:\AND\ProjectsPartTwo\Gradle\FinalProject\backend) is not equal to your 
 web application root (D:\AND\ProjectsPartTwo\Gradle\FinalProject\backend\build\exploded-backend)
 You will not be able to access files from your working directory on the production server.
 
-2019-09-14 22:50:27.403:INFO:oejs.Server:main: jetty-9.4.18.v20190429; built: 2019-04-29T20:42:08.989Z; git: e1bc35120a6617ee3df052294e433f3a25ce7097; jvm 1.8.0_202-release-1483-b03
-2019-09-14 22:50:28.108:INFO:oejsh.ContextHandler:main: Started c.g.a.t.d.j.DevAppEngineWebAppContext@c430e6c{/,file:///D:/AND/ProjectsPartTwo/Gradle/FinalProject/backend/build/exploded-backend/,AVAILABLE}{D:\AND\ProjectsPartTwo\Gradle\FinalProject\backend\build\exploded-backend}
-2019-09-14 22:50:28.108:INFO:oejs.session:main: DefaultSessionIdManager workerName=node0
-2019-09-14 22:50:28.108:INFO:oejs.session:main: node0 Scavenging disabled
-2019-09-14 22:50:28.122:INFO:oejs.AbstractConnector:main: Started NetworkTrafficSelectChannelConnector@5abca1e0{HTTP/1.1,[http/1.1]}{localhost:8080}
-2019-09-14 22:50:28.123:INFO:oejs.Server:main: Started @1480ms
-Sep 14, 2019 8:50:28 PM com.google.appengine.tools.development.AbstractModule startup
+2019-09-16 13:11:38.488:INFO:oejs.Server:main: jetty-9.4.18.v20190429; built: 2019-04-29T20:42:08.989Z; git: e1bc35120a6617ee3df052294e433f3a25ce7097; jvm 1.8.0_202-release-1483-b03
+2019-09-16 13:11:39.492:INFO:oejsh.ContextHandler:main: Started c.g.a.t.d.j.DevAppEngineWebAppContext@5a59ca5e{/,file:///D:/AND/ProjectsPartTwo/Gradle/FinalProject/backend/build/exploded-backend/,AVAILABLE}{D:\AND\ProjectsPartTwo\Gradle\FinalProject\backend\build\exploded-backend}
+2019-09-16 13:11:39.493:INFO:oejs.session:main: DefaultSessionIdManager workerName=node0
+2019-09-16 13:11:39.493:INFO:oejs.session:main: node0 Scavenging disabled
+2019-09-16 13:11:39.510:INFO:oejs.AbstractConnector:main: Started NetworkTrafficSelectChannelConnector@5abca1e0{HTTP/1.1,[http/1.1]}{localhost:8080}
+2019-09-16 13:11:39.511:INFO:oejs.Server:main: Started @1688ms
+Sep 16, 2019 11:11:39 AM com.google.appengine.tools.development.AbstractModule startup
 INFO: Module instance default is running at http://localhost:8080/
-Sep 14, 2019 8:50:28 PM com.google.appengine.tools.development.AbstractModule startup
+Sep 16, 2019 11:11:39 AM com.google.appengine.tools.development.AbstractModule startup
 INFO: The admin console is running at http://localhost:8080/_ah/admin
-Sep 14, 2019 10:50:28 PM com.google.appengine.tools.development.DevAppServerImpl doStart
+Sep 16, 2019 1:11:39 PM com.google.appengine.tools.development.DevAppServerImpl doStart
 INFO: Dev App Server is now running
+Sep 16, 2019 1:11:51 PM com.google.appengine.api.datastore.dev.LocalDatastoreService init
+INFO: Local Datastore initialized: 
+	Type: High Replication
+	Storage: D:\AND\ProjectsPartTwo\Gradle\FinalProject\backend\build\exploded-backend\WEB-INF\appengine-generated\local_db.bin
+Sep 16, 2019 1:11:51 PM com.google.appengine.api.datastore.dev.LocalDatastoreService load
+INFO: The backing store, D:\AND\ProjectsPartTwo\Gradle\FinalProject\backend\build\exploded-backend\WEB-INF\appengine-generated\local_db.bin, does not exist. It will be created.
+Sep 16, 2019 1:11:52 PM com.google.appengine.tools.development.jetty9.LocalResourceFileServlet doGet
+WARNING: No file found for: /favicon.ico

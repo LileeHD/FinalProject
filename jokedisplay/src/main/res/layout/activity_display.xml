@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DisplayActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <include layout="@layout/content_display" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".DisplayActivity"
+        android:background="@android:color/holo_blue_light">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/jokeView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity=""
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/holo_blue_dark"
+            android:gravity="center_vertical"
+            android:padding="25dp"
+            android:text="@string/joke"
+            android:textSize="20sp" />
+    </LinearLayout>
+</layout>

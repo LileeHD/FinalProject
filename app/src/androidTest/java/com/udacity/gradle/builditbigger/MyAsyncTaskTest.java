@@ -10,7 +10,6 @@ import org.junit.runner.RunWith;
 
 import java.util.concurrent.CountDownLatch;
 
-import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertNotNull;
 
@@ -36,6 +35,7 @@ public class MyAsyncTaskTest {
 
             @Override
             public void onFailed(Exception exception) {
+                countDownLatch.countDown();
                 Log.d(TAG, String.valueOf(exception));
             }
         };

@@ -14,9 +14,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.udacity.gradle.builditbigger.AsyncResponseHandler;
 import com.udacity.gradle.builditbigger.MyAsyncTask;
 import com.udacity.gradle.builditbigger.R;
@@ -48,6 +52,14 @@ public class MainActivityFragment extends Fragment implements AsyncResponseHandl
         mInterstitialAd = new InterstitialAd(Objects.requireNonNull(getActivity()));
         mInterstitialAd.setAdUnitId(getString(R.string.ad_unit_id));
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+        mInterstitialAd.setAdListener(new AdListener(){
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            }
+        });
 
         mProBar = root.findViewById(R.id.progress_bar);
         Button mButton = root.findViewById(R.id.joke_btn);
@@ -81,7 +93,7 @@ public class MainActivityFragment extends Fragment implements AsyncResponseHandl
             intent.putExtra(DisplayActivity.JOKE_EXTRA, output);
             mProBar.setVisibility(View.GONE);
             this.startActivity(intent);
-            Toast.makeText(getContext(), "SUCCESS: ", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "SUCCESS: Here's a joke", Toast.LENGTH_LONG).show();
         }
     }
 

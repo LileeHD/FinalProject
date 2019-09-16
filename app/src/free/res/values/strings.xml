@@ -2,4 +2,7 @@
     <string name="app_name">Build it Bigger: Free</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="free_msg">Don\'t want ads here? Easy, just take a look at the paid version</string>
+    <string name="no_interstitial">No Ads loaded, no jokes. Click again.</string>
+
+    <string name="ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
 </resources>
